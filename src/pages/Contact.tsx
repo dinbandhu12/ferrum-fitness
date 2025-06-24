@@ -1,0 +1,328 @@
+
+import React, { useState } from 'react';
+import Layout from '@/components/Layout';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { toast } from '@/hooks/use-toast';
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Facebook, Instagram, Twitter } from 'lucide-react';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for contacting us. We'll get back to you soon!",
+    });
+    setFormData({ name: '', phone: '', message: '' });
+  };
+
+  const whatsappClick = () => {
+    const message = "Hi! I'm interested in learning more about Fitness Studio membership options.";
+    const whatsappUrl = `https://wa.me/15551234567?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
+  return (
+    <Layout>
+      {/* Hero Section */}
+      <section className="hero-bg py-32 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Contact <span className="text-yellow-300">Us</span>
+          </h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
+            Get in touch with us today and start your fitness journey
+          </p>
+        </div>
+      </section>
+
+      {/* Contact Cards Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
+                Get In <span className="fitness-text-gradient">Touch</span>
+              </h2>
+              <p className="text-xl text-gray-600">Choose your preferred way to reach us</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+              {/* Phone Card */}
+              <Card className="text-center p-6 hover:shadow-xl transition-all duration-300 group border-2 hover:border-fitness-orange">
+                <CardContent className="pt-0">
+                  <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <Phone className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-fitness-black">Call Us</h3>
+                  <div className="space-y-2 mb-6">
+                    <p className="text-fitness-orange font-semibold">Primary: +1 (555) 123-4567</p>
+                    <p className="text-gray-600">Secondary: +1 (555) 987-6543</p>
+                  </div>
+                  <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
+                    Call Now
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* WhatsApp Card */}
+              <Card className="text-center p-6 hover:shadow-xl transition-all duration-300 group border-2 hover:border-green-500">
+                <CardContent className="pt-0">
+                  <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <MessageCircle className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-fitness-black">WhatsApp</h3>
+                  <div className="space-y-2 mb-6">
+                    <p className="text-fitness-orange font-semibold">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">Quick responses</p>
+                  </div>
+                  <Button 
+                    onClick={whatsappClick}
+                    className="w-full bg-green-500 hover:bg-green-600 text-white"
+                  >
+                    Chat Now
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Email Card */}
+              <Card className="text-center p-6 hover:shadow-xl transition-all duration-300 group border-2 hover:border-purple-500">
+                <CardContent className="pt-0">
+                  <div className="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <Mail className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-fitness-black">Email Us</h3>
+                  <div className="space-y-2 mb-6">
+                    <p className="text-fitness-orange font-semibold text-sm">info@fitnessstudio.com</p>
+                    <p className="text-gray-600 text-sm">support@fitnessstudio.com</p>
+                  </div>
+                  <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">
+                    Send Email
+                  </Button>
+                </CardContent>
+              </Card>
+
+              {/* Location Card */}
+              <Card className="text-center p-6 hover:shadow-xl transition-all duration-300 group border-2 hover:border-fitness-orange">
+                <CardContent className="pt-0">
+                  <div className="w-20 h-20 fitness-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <MapPin className="text-white" size={32} />
+                  </div>
+                  <h3 className="text-xl font-bold mb-4 text-fitness-black">Visit Us</h3>
+                  <div className="space-y-1 mb-6">
+                    <p className="text-fitness-orange font-semibold text-sm">123 Fitness Street</p>
+                    <p className="text-gray-600 text-sm">Health City, HC 12345</p>
+                    <p className="text-gray-600 text-sm">Near Central Mall</p>
+                  </div>
+                  <Button className="w-full fitness-gradient text-white">
+                    Get Directions
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Form and Info Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+              {/* Contact Form */}
+              <Card className="shadow-2xl">
+                <CardHeader className="text-center pb-8">
+                  <CardTitle className="text-3xl font-bold text-fitness-black">Send Us a Message</CardTitle>
+                  <p className="text-gray-600">We'll get back to you within 24 hours</p>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-fitness-black mb-2">
+                        Full Name *
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        placeholder="Enter your full name"
+                        required
+                        className="focus:ring-fitness-orange focus:border-fitness-orange h-12"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-fitness-black mb-2">
+                        Phone Number *
+                      </label>
+                      <Input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        placeholder="Enter your phone number"
+                        required
+                        className="focus:ring-fitness-orange focus:border-fitness-orange h-12"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-fitness-black mb-2">
+                        Message *
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        placeholder="Tell us about your fitness goals or any questions you have..."
+                        rows={6}
+                        required
+                        className="focus:ring-fitness-orange focus:border-fitness-orange"
+                      />
+                    </div>
+
+                    <Button type="submit" className="w-full fitness-gradient text-white hover:opacity-90 text-lg py-4">
+                      <Send className="mr-2" size={20} />
+                      Send Message
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+
+              {/* Operating Hours and Social Media */}
+              <div className="space-y-8">
+                {/* Operating Hours Card */}
+                <Card className="shadow-lg">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-fitness-black flex items-center">
+                      <Clock className="mr-3 text-fitness-orange" size={28} />
+                      Operating Hours
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                        <span className="font-medium text-fitness-black">Monday - Friday</span>
+                        <span className="text-fitness-orange font-semibold">6:00 AM - 10:00 PM</span>
+                      </div>
+                      <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                        <span className="font-medium text-fitness-black">Saturday</span>
+                        <span className="text-fitness-orange font-semibold">8:00 AM - 8:00 PM</span>
+                      </div>
+                      <div className="flex justify-between items-center py-3">
+                        <span className="font-medium text-fitness-black">Sunday</span>
+                        <span className="text-fitness-orange font-semibold">8:00 AM - 6:00 PM</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Social Media Card */}
+                <Card className="shadow-lg">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-bold text-fitness-black">Follow Us</CardTitle>
+                    <p className="text-gray-600">Stay connected for updates and motivation</p>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex space-x-4">
+                      <a href="#" className="flex-1">
+                        <div className="flex items-center justify-center p-4 bg-blue-600 rounded-lg text-white hover:bg-blue-700 transition-colors">
+                          <Facebook size={24} className="mr-2" />
+                          <span className="font-medium">Facebook</span>
+                        </div>
+                      </a>
+                      <a href="#" className="flex-1">
+                        <div className="flex items-center justify-center p-4 bg-pink-600 rounded-lg text-white hover:bg-pink-700 transition-colors">
+                          <Instagram size={24} className="mr-2" />
+                          <span className="font-medium">Instagram</span>
+                        </div>
+                      </a>
+                      <a href="#" className="flex-1">
+                        <div className="flex items-center justify-center p-4 bg-blue-400 rounded-lg text-white hover:bg-blue-500 transition-colors">
+                          <Twitter size={24} className="mr-2" />
+                          <span className="font-medium">Twitter</span>
+                        </div>
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Map Section */}
+      <section className="py-20 bg-fitness-lightGray">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
+              Find <span className="fitness-text-gradient">Our Location</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Conveniently located in the heart of Health City
+            </p>
+          </div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.682!2d-73.98731668459394!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259af0068a4a1%3A0x8a1c7c85c7c85c8!2sFitness%20Studio!5e0!3m2!1sen!2sus!4v1635789012345!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Fitness Studio Location"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="hero-bg py-20 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Get Started?
+          </h2>
+          <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+            Don't wait any longer! Contact us today and take the first step towards your fitness transformation
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4">
+              Get Free Trial
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white hover:text-fitness-orange text-lg px-8 py-4"
+              onClick={whatsappClick}
+            >
+              <MessageCircle className="mr-2" size={20} />
+              Chat on WhatsApp
+            </Button>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  );
+};
+
+export default Contact;
