@@ -1,7 +1,14 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Facebook,
+  Instagram,
+  Twitter,
+} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -11,18 +18,32 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 fitness-gradient rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">F</span>
+              <div className="flex items-center space-x-2">
+                <img
+                  src="/logo-white-svg.svg"
+                  alt="Ferrum"
+                  className="w-full h-10"
+                />
+                {/* <span className="text-2xl font-extrabold text-fitness-black pl-1">Ferrum Fitness</span> */}
               </div>
-              <span className="text-xl font-bold">Fitness Studio</span>
             </div>
             <p className="text-gray-300 mb-4">
-              Transform your body, elevate your mind, and join our community of fitness enthusiasts.
+              Transform your body, elevate your mind, and join our community of
+              fitness enthusiasts.
             </p>
             <div className="flex space-x-4">
-              <Facebook size={20} className="hover:text-fitness-orange cursor-pointer transition-colors" />
-              <Instagram size={20} className="hover:text-fitness-orange cursor-pointer transition-colors" />
-              <Twitter size={20} className="hover:text-fitness-orange cursor-pointer transition-colors" />
+              <Facebook
+                size={20}
+                className="hover:text-fitness-orange cursor-pointer transition-colors"
+              />
+              <Instagram
+                size={20}
+                className="hover:text-fitness-orange cursor-pointer transition-colors"
+              />
+              <Twitter
+                size={20}
+                className="hover:text-fitness-orange cursor-pointer transition-colors"
+              />
             </div>
           </div>
 
@@ -30,11 +51,46 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><Link to="/" className="text-gray-300 hover:text-fitness-orange transition-colors">Home</Link></li>
-              <li><Link to="/services" className="text-gray-300 hover:text-fitness-orange transition-colors">Services & Pricing</Link></li>
-              <li><Link to="/gallery" className="text-gray-300 hover:text-fitness-orange transition-colors">Gallery</Link></li>
-              <li><Link to="/about" className="text-gray-300 hover:text-fitness-orange transition-colors">About</Link></li>
-              <li><Link to="/contact" className="text-gray-300 hover:text-fitness-orange transition-colors">Contact</Link></li>
+              <li>
+                <Link
+                  to="/"
+                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/services"
+                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                >
+                  Services & Pricing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gallery"
+                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                >
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -52,7 +108,9 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <MapPin size={16} className="text-fitness-orange" />
-                <span className="text-gray-300">123 Fitness Street, Health City</span>
+                <span className="text-gray-300">
+                  123 Fitness Street, Health City
+                </span>
               </li>
             </ul>
           </div>
@@ -83,11 +141,21 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 Fitness Studio. All rights reserved.
+              © 2024 Ferrum Studio. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="#" className="text-gray-400 hover:text-fitness-orange text-sm transition-colors">Privacy Policy</Link>
-              <Link to="#" className="text-gray-400 hover:text-fitness-orange text-sm transition-colors">Terms of Service</Link>
+              <Link
+                to="#"
+                className="text-gray-400 hover:text-fitness-orange text-sm transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                to="#"
+                className="text-gray-400 hover:text-fitness-orange text-sm transition-colors"
+              >
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>

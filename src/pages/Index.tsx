@@ -24,7 +24,7 @@ const Index = () => {
                 Get Free Trial
                 <ArrowRight className="ml-2" size={20} />
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-fitness-black text-lg px-8 py-4">
+              <Button size="lg" variant="outline" className="border-none text-black hover:bg-fitness-orange hover:text-white text-lg px-8 py-4">
                 <Phone className="mr-2" size={20} />
                 Call Now
               </Button>
@@ -234,7 +234,7 @@ const Index = () => {
             Join thousands of members who have transformed their lives at Fitness Studio
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-fitness-orange text-lg px-8 py-4">
+            <Button size="lg" variant="outline" className="border-white text-fitness-orange hover:bg-gray-100 hover:text-fitness-orange text-lg px-8 py-4">
               Get Your Free Trial
             </Button>
             <Button size="lg" className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4">

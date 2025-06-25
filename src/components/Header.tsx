@@ -21,21 +21,21 @@ const Header = () => {
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="fitness-gradient py-2">
+      <div className="fitness-gradient py-4 md:py-2">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center text-white text-sm">
-            <div className="flex items-center space-x-4">
+            <div className="md:flex md:items-center md:space-x-4">
               <div className="flex items-center space-x-1">
                 <Phone size={14} />
                 <span>+1 (555) 123-4567</span>
               </div>
-              <div className="hidden md:flex items-center space-x-1">
+              <div className="flex items-center space-x-1">
                 <MapPin size={14} />
                 <span>123 Fitness Street, Health City</span>
               </div>
             </div>
-            <div className="text-sm font-medium">
-              Mon-Fri: 6AM-10PM | Sat-Sun: 8AM-8PM
+            <div className="flex flex-col md:flex-row md:gap-2 text-sm font-medium">
+              <span>Mon-Fri: 06AM-10PM</span> <span className="hidden md:inline">|</span> <span>Sat-Sun: 08AM-08PM</span>
             </div>
           </div>
         </div>
@@ -45,8 +45,8 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/Logo.svg" alt="Ferrum Fitness" className="w-10 h-10" />
-            <span className="text-2xl font-extrabold text-fitness-black pl-1">Ferrum Fitness</span>
+            <img src="/logo-black-svg.svg" alt="Ferrum" className="w-full h-10" />
+            {/* <span className="text-2xl font-extrabold text-fitness-black pl-1">Ferrum Fitness</span> */}
           </Link>
 
           {/* Desktop Navigation */}
