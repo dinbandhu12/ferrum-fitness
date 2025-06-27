@@ -1,42 +1,66 @@
-
-import React, { useState } from 'react';
-import Layout from '@/components/Layout';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from '@/hooks/use-toast';
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Facebook, Instagram, Twitter } from 'lucide-react';
+import React, { useState } from "react";
+import Layout from "@/components/Layout";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  MessageCircle,
+  Send,
+  Facebook,
+  Instagram,
+  Twitter,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    message: ''
+    name: "",
+    phone: "",
+    message: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     toast({
       title: "Message Sent!",
       description: "Thank you for contacting us. We'll get back to you soon!",
     });
-    setFormData({ name: '', phone: '', message: '' });
+    setFormData({ name: "", phone: "", message: "" });
   };
 
-  const whatsappClick = () => {
-    const message = "Hi! I'm interested in learning more about Fitness Studio membership options.";
-    const whatsappUrl = `https://wa.me/15551234567?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+  const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
+
+  const handleContactClick = () => {
+    const phoneNumber = "+15551234567"; // Replace with your actual phone number
+    
+    if (isMobile()) {
+      // On mobile, open phone dialer
+      window.location.href = `tel:${phoneNumber}`;
+    } else {
+      // On desktop, open WhatsApp Web
+      const message = "Hi! I'm interested in learning more about your services.";
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, "_blank");
+    }
   };
 
   return (
@@ -61,20 +85,28 @@ const Contact = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
                 Get In <span className="fitness-text-gradient">Touch</span>
               </h2>
-              <p className="text-xl text-gray-600">Choose your preferred way to reach us</p>
+              <p className="text-xl text-gray-600">
+                Choose your preferred way to reach us
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
               {/* Phone Card */}
-              <Card className="text-center p-6 hover:shadow-xl transition-all duration-300 group border-2 hover:border-fitness-orange">
-                <CardContent className="pt-0">
+              <Card className="text-center p-4 hover:shadow-xl transition-all duration-300 group border-2 hover:border-fitness-orange">
+                <CardContent className="p-2">
                   <div className="w-20 h-20 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                     <Phone className="text-white" size={32} />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-fitness-black">Call Us</h3>
+                  <h3 className="text-xl font-bold mb-4 text-fitness-black">
+                    Call Us
+                  </h3>
                   <div className="space-y-2 mb-6">
-                    <p className="text-fitness-orange font-semibold">Primary: +1 (555) 123-4567</p>
-                    <p className="text-gray-600">Secondary: +1 (555) 987-6543</p>
+                    <p className="text-fitness-orange font-semibold">
+                      Primary: <br /> +1 (555) 123-4567
+                    </p>
+                    <p className="text-gray-600">
+                      Secondary: <br /> +1 (555) 987-6543
+                    </p>
                   </div>
                   <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
                     Call Now
@@ -88,16 +120,22 @@ const Contact = () => {
                   <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                     <MessageCircle className="text-white" size={32} />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-fitness-black">WhatsApp</h3>
+                  <h3 className="text-xl font-bold mb-4 text-fitness-black">
+                    {isMobile() ? 'Call Us' : 'WhatsApp'}
+                  </h3>
                   <div className="space-y-2 mb-6">
-                    <p className="text-fitness-orange font-semibold">+1 (555) 123-4567</p>
-                    <p className="text-gray-600">Quick responses</p>
+                    <p className="text-fitness-orange font-semibold">
+                      +1 (555) 123-4567
+                    </p>
+                    <p className="text-gray-600">
+                      {isMobile() ? 'Tap to call' : 'Quick responses'}
+                    </p>
                   </div>
-                  <Button 
-                    onClick={whatsappClick}
+                  <Button
+                    onClick={handleContactClick}
                     className="w-full bg-green-500 hover:bg-green-600 text-white"
                   >
-                    Chat Now
+                    {isMobile() ? 'Call Now' : 'Chat Now'}
                   </Button>
                 </CardContent>
               </Card>
@@ -108,10 +146,16 @@ const Contact = () => {
                   <div className="w-20 h-20 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                     <Mail className="text-white" size={32} />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-fitness-black">Email Us</h3>
+                  <h3 className="text-xl font-bold mb-4 text-fitness-black">
+                    Email Us
+                  </h3>
                   <div className="space-y-2 mb-6">
-                    <p className="text-fitness-orange font-semibold text-sm">info@fitnessstudio.com</p>
-                    <p className="text-gray-600 text-sm">support@fitnessstudio.com</p>
+                    <p className="text-fitness-orange font-semibold text-sm">
+                      info@fitnessstudio.com
+                    </p>
+                    <p className="text-gray-600 text-sm">
+                      support@fitnessstudio.com
+                    </p>
                   </div>
                   <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">
                     Send Email
@@ -125,10 +169,16 @@ const Contact = () => {
                   <div className="w-20 h-20 fitness-gradient rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                     <MapPin className="text-white" size={32} />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-fitness-black">Visit Us</h3>
+                  <h3 className="text-xl font-bold mb-4 text-fitness-black">
+                    Visit Us
+                  </h3>
                   <div className="space-y-1 mb-6">
-                    <p className="text-fitness-orange font-semibold text-sm">123 Fitness Street</p>
-                    <p className="text-gray-600 text-sm">Health City, HC 12345</p>
+                    <p className="text-fitness-orange font-semibold text-sm">
+                      123 Fitness Street
+                    </p>
+                    <p className="text-gray-600 text-sm">
+                      Health City, HC 12345
+                    </p>
                     <p className="text-gray-600 text-sm">Near Central Mall</p>
                   </div>
                   <Button className="w-full fitness-gradient text-white">
@@ -143,13 +193,20 @@ const Contact = () => {
               {/* Contact Form */}
               <Card className="shadow-2xl">
                 <CardHeader className="text-center pb-8">
-                  <CardTitle className="text-3xl font-bold text-fitness-black">Send Us a Message</CardTitle>
-                  <p className="text-gray-600">We'll get back to you within 24 hours</p>
+                  <CardTitle className="text-3xl font-bold text-fitness-black">
+                    Send Us a Message
+                  </CardTitle>
+                  <p className="text-gray-600">
+                    We'll get back to you within 24 hours
+                  </p>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-fitness-black mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-fitness-black mb-2"
+                      >
                         Full Name *
                       </label>
                       <Input
@@ -165,7 +222,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-fitness-black mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-fitness-black mb-2"
+                      >
                         Phone Number *
                       </label>
                       <Input
@@ -181,7 +241,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-fitness-black mb-2">
+                      <label
+                        htmlFor="message"
+                        className="block text-sm font-medium text-fitness-black mb-2"
+                      >
                         Message *
                       </label>
                       <Textarea
@@ -196,7 +259,10 @@ const Contact = () => {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full fitness-gradient text-white hover:opacity-90 text-lg py-4">
+                    <Button
+                      type="submit"
+                      className="w-full fitness-gradient text-white hover:opacity-90 text-lg py-4"
+                    >
                       <Send className="mr-2" size={20} />
                       Send Message
                     </Button>
@@ -217,16 +283,28 @@ const Contact = () => {
                   <CardContent>
                     <div className="space-y-4">
                       <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                        <span className="font-medium text-fitness-black">Monday - Friday</span>
-                        <span className="text-fitness-orange font-semibold">6:00 AM - 10:00 PM</span>
+                        <span className="font-medium text-fitness-black">
+                          Monday - Friday
+                        </span>
+                        <span className="text-fitness-orange font-semibold">
+                          6:00 AM - 10:00 PM
+                        </span>
                       </div>
                       <div className="flex justify-between items-center py-3 border-b border-gray-200">
-                        <span className="font-medium text-fitness-black">Saturday</span>
-                        <span className="text-fitness-orange font-semibold">8:00 AM - 8:00 PM</span>
+                        <span className="font-medium text-fitness-black">
+                          Saturday
+                        </span>
+                        <span className="text-fitness-orange font-semibold">
+                          8:00 AM - 8:00 PM
+                        </span>
                       </div>
                       <div className="flex justify-between items-center py-3">
-                        <span className="font-medium text-fitness-black">Sunday</span>
-                        <span className="text-fitness-orange font-semibold">8:00 AM - 6:00 PM</span>
+                        <span className="font-medium text-fitness-black">
+                          Sunday
+                        </span>
+                        <span className="text-fitness-orange font-semibold">
+                          8:00 AM - 6:00 PM
+                        </span>
                       </div>
                     </div>
                   </CardContent>
@@ -235,8 +313,12 @@ const Contact = () => {
                 {/* Social Media Card */}
                 <Card className="shadow-lg">
                   <CardHeader>
-                    <CardTitle className="text-2xl font-bold text-fitness-black">Follow Us</CardTitle>
-                    <p className="text-gray-600">Stay connected for updates and motivation</p>
+                    <CardTitle className="text-2xl font-bold text-fitness-black">
+                      Follow Us
+                    </CardTitle>
+                    <p className="text-gray-600">
+                      Stay connected for updates and motivation
+                    </p>
                   </CardHeader>
                   <CardContent>
                     <div className="flex space-x-4">
@@ -282,14 +364,14 @@ const Contact = () => {
           <div className="max-w-6xl mx-auto">
             <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.682!2d-73.98731668459394!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259af0068a4a1%3A0x8a1c7c85c7c85c8!2sFitness%20Studio!5e0!3m2!1sen!2sus!4v1635789012345!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.6958973226806!2d77.59795297484285!3d13.055018787268118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17f5e7c4a35d%3A0xc695ee31ceae20da!2sFERRUM%20FITNESS!5e0!3m2!1sen!2sin!4v1751044260010!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Fitness Studio Location"
+                title="Ferrum Fitness Location"
               ></iframe>
             </div>
           </div>
@@ -303,17 +385,23 @@ const Contact = () => {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-            Don't wait any longer! Contact us today and take the first step towards your fitness transformation
+            Don't wait any longer! Contact us today and take the first step
+            towards your fitness transformation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4">
-              Get Free Trial
+            <Link to="https://www.google.com/maps/place/FERRUM+FITNESS/@13.0550188,77.597953,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae17f5e7c4a35d:0xc695ee31ceae20da!8m2!3d13.0550188!4d77.6005279!16s%2Fg%2F11y92fl3h0?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+            <Button
+              size="lg"
+              className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+            >
+              Visit Studio
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-fitness-orange text-lg px-8 py-4"
-              onClick={whatsappClick}
+            </Link>
+            <Button
+              size="lg"
+              variant="outline"
+              className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+              onClick={handleContactClick}
             >
               <MessageCircle className="mr-2" size={20} />
               Chat on WhatsApp

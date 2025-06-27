@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Check, Star, Users, Dumbbell, Heart, Zap, Target, Award, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -114,6 +115,11 @@ const Services = () => {
       validUntil: "Unlimited referrals"
     }
   ];
+
+  const handleCallClick = () => {
+    const phoneNumber = "+15551234567"; // Replace with your actual phone number
+    window.location.href = `tel:${phoneNumber}`;
+  };
 
   return (
     <Layout>
@@ -254,10 +260,12 @@ const Services = () => {
             Choose your membership plan and start your fitness journey today
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/contact">
             <Button size="lg" className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4">
-              Get Free Trial
+              Visit us
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-fitness-orange text-lg px-8 py-4">
+            </Link>
+            <Button size="lg" variant="outline" className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4" onClick={handleCallClick}>
               Call Now: (555) 123-4567
             </Button>
           </div>

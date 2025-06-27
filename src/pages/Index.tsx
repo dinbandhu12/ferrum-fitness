@@ -1,11 +1,68 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, CheckCircle, Users, Award, Clock, Phone, MapPin, Mail, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if the device is mobile
+    const checkIfMobile = () => {
+      setIsMobile(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
+  const handleCallClick = () => {
+    const phoneNumber = "+15551234567"; // Replace with your actual phone number
+    if (isMobile) {
+      window.location.href = `tel:${phoneNumber}`;
+    } else {
+      // For desktop, you can keep the original behavior or open a contact page
+      window.location.href = "/contact";
+    }
+  };
+
+  const handleContactAction = (type: 'call' | 'whatsapp' | 'email' | 'location') => {
+    const phoneNumber = "+15551234567"; // Replace with your actual phone number
+    const email = "info@fitnessstudio.com"; // Replace with your actual email
+    const address = "123 Fitness Street, City, Country"; // Replace with your actual address
+    const googleMapsUrl = "https://www.google.com/maps/place/FERRUM+FITNESS/@13.0550188,77.597953,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae17f5e7c4a35d:0xc695ee31ceae20da!8m2!3d13.0550188!4d77.6005279!16s%2Fg%2F11y92fl3h0?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D"; // Replace with your Google Maps URL
+
+    switch (type) {
+      case 'call':
+        if (isMobile) {
+          window.location.href = `tel:${phoneNumber}`;
+        } else {
+          window.location.href = "/contact";
+        }
+        break;
+      case 'whatsapp':
+        const message = "Hi! I'm interested in your fitness programs.";
+        if (isMobile) {
+          window.location.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        } else {
+          window.location.href = "/contact";
+        }
+        break;
+      case 'email':
+        window.location.href = `mailto:${email}?subject=Inquiry about Fitness Programs`;
+        break;
+      case 'location':
+        window.open(googleMapsUrl, '_blank');
+        break;
+    }
+  };
+
   return (
     <Layout>
       {/* Hero Section */}
@@ -24,9 +81,14 @@ const Index = () => {
                 Get Free Trial
                 <ArrowRight className="ml-2" size={20} />
               </Button>
-              <Button size="lg" variant="outline" className="border-none text-black hover:bg-fitness-orange hover:text-white text-lg px-8 py-4">
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-none text-black hover:bg-fitness-orange hover:text-white text-lg px-8 py-4"
+                onClick={handleCallClick}
+              >
                 <Phone className="mr-2" size={20} />
-                Call Now
+                {isMobile ? 'Call Now' : 'Contact Us'}
               </Button>
             </div>
           </div>
@@ -165,8 +227,11 @@ const Index = () => {
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-fitness-black">Call Us</h3>
                   <p className="text-fitness-orange font-semibold">+1 (555) 123-4567</p>
-                  <Button className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white">
-                    Call Now
+                  <Button 
+                    className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white"
+                    onClick={() => handleContactAction('call')}
+                  >
+                    {isMobile ? 'Call Now' : 'Contact Us'}
                   </Button>
                 </CardContent>
               </Card>
@@ -179,8 +244,11 @@ const Index = () => {
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-fitness-black">WhatsApp</h3>
                   <p className="text-fitness-orange font-semibold">+1 (555) 123-4567</p>
-                  <Button className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white">
-                    Chat Now
+                  <Button 
+                    className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white"
+                    onClick={() => handleContactAction('whatsapp')}
+                  >
+                    {isMobile ? 'Chat on WhatsApp' : 'Contact Us'}
                   </Button>
                 </CardContent>
               </Card>
@@ -193,7 +261,10 @@ const Index = () => {
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-fitness-black">Email Us</h3>
                   <p className="text-fitness-orange font-semibold text-sm">info@fitnessstudio.com</p>
-                  <Button className="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white">
+                  <Button 
+                    className="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white"
+                    onClick={() => handleContactAction('email')}
+                  >
                     Send Email
                   </Button>
                 </CardContent>
@@ -206,19 +277,24 @@ const Index = () => {
                     <MapPin className="text-white" size={28} />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-fitness-black">Visit Us</h3>
-                  <p className="text-fitness-orange font-semibold text-sm">123 Fitness Street</p>
-                  <Button className="mt-4 w-full fitness-gradient text-white">
-                    Get Directions
+                  <p className="text-fitness-orange font-semibold text-sm">123 Fitness Street, City</p>
+                  <Button 
+                    className="mt-4 w-full fitness-gradient text-white"
+                    onClick={() => handleContactAction('location')}
+                  >
+                    View on Map
                   </Button>
                 </CardContent>
               </Card>
             </div>
 
             <div className="text-center mt-12">
+              <Link to="/contact">
               <Button className="fitness-gradient text-white hover:opacity-90 text-xl px-12 py-6">
                 Join Our Community Today
                 <ArrowRight className="ml-2" size={24} />
               </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -235,12 +311,17 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="outline" className="border-white text-fitness-orange hover:bg-gray-100 hover:text-fitness-orange text-lg px-8 py-4">
-              Get Your Free Trial
+              Get a Free Tour
             </Button>
-            <Button size="lg" className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4">
-              <Phone className="mr-2" size={20} />
-              Call Now: (555) 123-4567
-            </Button>
+            <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+                onClick={handleCallClick}
+              >
+                <Phone className="mr-2" size={20} />
+                Call Now: (555) 123-4567
+              </Button>
           </div>
         </div>
       </section>

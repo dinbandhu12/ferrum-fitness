@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
@@ -65,13 +64,17 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <Button variant="outline" className="border-fitness-orange text-fitness-orange hover:bg-fitness-orange hover:text-white">
-              <Phone size={16} className="mr-2" />
-              Call Now
-            </Button>
-            <Button className="fitness-gradient text-white hover:opacity-90">
-              Join Today
-            </Button>
+            <Link to="/contact">
+              <Button variant="outline" className="border-fitness-orange text-fitness-orange hover:bg-fitness-orange hover:text-white">
+                <Phone size={16} className="mr-2" />
+                Call Now
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button className="fitness-gradient text-white hover:opacity-90">
+                Join Today
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,13 +105,17 @@ const Header = () => {
                 </Link>
               ))}
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" className="border-fitness-orange text-fitness-orange">
-                  <Phone size={16} className="mr-2" />
-                  Call Now
-                </Button>
-                <Button className="fitness-gradient text-white">
-                  Join Today
-                </Button>
+                <Link to="/contact">
+                  <Button variant="outline" className="border-fitness-orange text-fitness-orange">
+                    <Phone size={16} className="mr-2" />
+                    Call Now
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button className="fitness-gradient text-white">
+                    Join Today
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>
