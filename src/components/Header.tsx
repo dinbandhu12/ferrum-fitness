@@ -20,21 +20,24 @@ const Header = () => {
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="fitness-gradient py-4 md:py-2">
+      <div className="fitness-gradient-green py-4 md:py-2">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center text-white text-sm">
+          <div className="flex justify-between items-center text-black text-sm font-medium">
             <div className="md:flex md:items-center md:space-x-4">
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center text-lg md:text-base space-x-1">
                 <Phone size={14} />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 9148549144</span>
               </div>
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center text-base space-x-1">
                 <MapPin size={14} />
-                <span>123 Fitness Street, Health City</span>
+                <div className='flex flex-col md:flex-row gap-0 md:gap-1'>
+                  <span>Kempapura Main Road, </span>
+                  <span> Bhuvaneswari Nagar</span>
+                </div>
               </div>
             </div>
             <div className="flex flex-col md:flex-row md:gap-2 text-sm font-medium">
-              <span>Mon-Fri: 06AM-10PM</span> <span className="hidden md:inline">|</span> <span>Sat-Sun: 08AM-08PM</span>
+              <span className='text-lg md:text-base'>Mon-Sat: 05AM-10PM</span> <span className="hidden md:inline">|</span> <span className='text-lg md:text-base'>Sun: 08AM-01PM</span>
             </div>
           </div>
         </div>
@@ -54,8 +57,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-medium transition-colors hover:text-fitness-orange ${
-                  isActive(item.href) ? 'text-fitness-orange' : 'text-fitness-black'
+                className={`font-medium transition-colors hover:text-fitness-dakestgreen ${
+                  isActive(item.href) ? 'text-fitness-dakestgreen font-bold' : 'text-fitness-black'
                 }`}
               >
                 {item.name}
@@ -65,13 +68,13 @@ const Header = () => {
 
           <div className="hidden lg:flex items-center space-x-4">
             <Link to="/contact">
-              <Button variant="outline" className="border-fitness-orange text-fitness-orange hover:bg-fitness-orange hover:text-white">
-                <Phone size={16} className="mr-2" />
+              <Button variant="outline" className="border-fitness-dakestgreen text-fitness-dakestgreen hover:bg-fitness-dakestgreen hover:text-white font-bold">
+                <Phone size={16} className="mr-1" />
                 Call Now
               </Button>
             </Link>
             <Link to="/contact">
-              <Button className="fitness-gradient text-white hover:opacity-90">
+              <Button className="fitness-gradient-green text-white font-bold hover:opacity-90">
                 Join Today
               </Button>
             </Link>
@@ -97,7 +100,7 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className={`font-medium py-2 transition-colors ${
-                    isActive(item.href) ? 'text-fitness-orange' : 'text-fitness-black'
+                    isActive(item.href) ? 'text-fitness-dakestgreen font-bold' : 'text-fitness-black'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -106,8 +109,8 @@ const Header = () => {
               ))}
               <div className="flex flex-col space-y-2 pt-4">
                 <Link to="/contact">
-                  <Button variant="outline" className="border-fitness-orange text-fitness-orange">
-                    <Phone size={16} className="mr-2" />
+                  <Button variant="outline" className="border-fitness-dakestgreen text-fitness-dakestgreen">
+                    <Phone size={16} className="mr-1" />
                     Call Now
                   </Button>
                 </Link>

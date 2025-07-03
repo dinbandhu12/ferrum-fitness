@@ -34,16 +34,16 @@ const Footer = () => {
             <div className="flex space-x-4">
               <Facebook
                 size={20}
-                className="hover:text-fitness-orange cursor-pointer transition-colors"
+                className="hover:text-fitness-green cursor-pointer transition-colors"
               />
               <Instagram
                 size={20}
-                className="hover:text-fitness-orange cursor-pointer transition-colors"
+                className="hover:text-fitness-green cursor-pointer transition-colors"
               />
-              <Twitter
+              {/* <Twitter
                 size={20}
                 className="hover:text-fitness-orange cursor-pointer transition-colors"
-              />
+              /> */}
             </div>
           </div>
 
@@ -54,7 +54,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/"
-                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                  className="text-gray-300 hover:text-fitness-green transition-colors"
                 >
                   Home
                 </Link>
@@ -62,7 +62,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/services"
-                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                  className="text-gray-300 hover:text-fitness-green transition-colors"
                 >
                   Services & Pricing
                 </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/gallery"
-                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                  className="text-gray-300 hover:text-fitness-green transition-colors"
                 >
                   Gallery
                 </Link>
@@ -78,7 +78,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/about"
-                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                  className="text-gray-300 hover:text-fitness-green transition-colors"
                 >
                   About
                 </Link>
@@ -86,7 +86,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
-                  className="text-gray-300 hover:text-fitness-orange transition-colors"
+                  className="text-gray-300 hover:text-fitness-green transition-colors"
                 >
                   Contact
                 </Link>
@@ -99,15 +99,15 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Contact Info</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
-                <Phone size={16} className="text-fitness-orange" />
+                <Phone size={16} className="text-fitness-green" />
                 <span className="text-gray-300">+1 (555) 123-4567</span>
               </li>
               <li className="flex items-center space-x-3">
-                <Mail size={16} className="text-fitness-orange" />
+                <Mail size={16} className="text-fitness-green" />
                 <span className="text-gray-300">info@fitnessstudio.com</span>
               </li>
               <li className="flex items-center space-x-3">
-                <MapPin size={16} className="text-fitness-orange" />
+                <MapPin size={16} className="text-fitness-green" />
                 <span className="text-gray-300">
                   123 Fitness Street, Health City
                 </span>
@@ -146,13 +146,13 @@ const Footer = () => {
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
                 to="#"
-                className="text-gray-400 hover:text-fitness-orange text-sm transition-colors"
+                className="text-gray-400 hover:text-gray-200 text-sm transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="#"
-                className="text-gray-400 hover:text-fitness-orange text-sm transition-colors"
+                className="text-gray-400 hover:text-gray-200 text-sm transition-colors"
               >
                 Terms of Service
               </Link>

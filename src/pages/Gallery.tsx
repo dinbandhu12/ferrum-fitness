@@ -16,10 +16,18 @@ import { Link } from "react-router-dom";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
 
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedVideo !== null) {
+        if (e.key === 'Escape') {
+          closeVideo();
+        }
+        return;
+      }
+      
       if (selectedImage === null) return;
 
       switch (e.key) {
@@ -37,16 +45,17 @@ const Gallery = () => {
       }
     };
 
-    if (selectedImage !== null) {
+    if (selectedImage !== null || selectedVideo !== null) {
       window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      if (selectedImage === null && selectedVideo === null) {
+        document.body.style.overflow = 'unset';
+      }
     };
-  }, [selectedImage]);
+  }, [selectedImage, selectedVideo]);
 
   const gymImages = [
     {
@@ -111,6 +120,37 @@ const Gallery = () => {
     },
   ];
 
+  const gymVideos = [
+    {
+      id: "gym-video-1",
+      title: "Full Body Workout",
+      description: "Intense full body workout session with our trainers",
+      thumbnail: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=800&h=450&fit=crop",
+      videoUrl: "/vid/sample-vid-1.mp4"
+    },
+    {
+      id: "gym-video-2",
+      title: "HIIT Training",
+      description: "High intensity interval training for maximum fat burn",
+      thumbnail: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=800&h=450&fit=crop",
+      videoUrl: "https://www.youtube.com/embed/ml6cT4AZdqI"
+    },
+    {
+      id: "gym-video-3",
+      title: "Strength Training",
+      description: "Build muscle and increase strength with proper form",
+      thumbnail: "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=800&h=450&fit=crop",
+      videoUrl: "https://www.youtube.com/embed/3PUIycMGwuU"
+    },
+    {
+      id: "gym-video-4",
+      title: "Yoga & Stretching",
+      description: "Improve flexibility and reduce stress with yoga",
+      thumbnail: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=450&fit=crop",
+      videoUrl: "https://www.youtube.com/embed/X655B4ISakg"
+    }
+  ];
+
   const winners = [
     {
       name: "Mike Johnson",
@@ -148,10 +188,12 @@ const Gallery = () => {
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeLightbox = () => {
     setSelectedImage(null);
+    document.body.style.overflow = 'unset';
   };
 
   const nextImage = () => {
@@ -166,6 +208,16 @@ const Gallery = () => {
         selectedImage === 0 ? gymImages.length - 1 : selectedImage - 1
       );
     }
+  };
+
+  const openVideo = (index: number) => {
+    setSelectedVideo(index);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeVideo = () => {
+    setSelectedVideo(null);
+    document.body.style.overflow = 'unset';
   };
 
   const handleCallClick = () => {
@@ -241,6 +293,57 @@ const Gallery = () => {
                 Get a Tour
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Gallery Section */}
+      <section className="py-20 bg-fitness-lightGray">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center space-x-2 mb-6">
+              <div className="w-12 h-12 fitness-gradient rounded-full flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-fitness-black">
+                Workout <span className="fitness-text-gradient">Videos</span>
+              </h2>
+            </div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Watch our expert trainers in action and get inspired with these workout sessions
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            {gymVideos.map((video, index) => (
+              <Card
+                key={video.id}
+                className="group overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+                onClick={() => openVideo(index)}
+              >
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    src={video.thumbnail}
+                    alt={video.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#F97316" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold text-fitness-black mb-1">{video.title}</h3>
+                  <p className="text-sm text-gray-600">{video.description}</p>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -385,6 +488,44 @@ const Gallery = () => {
               <div className="inline-block bg-black/50 rounded-full px-4 py-2 text-white text-sm">
                 {selectedImage + 1} of {gymImages.length}
               </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Video Lightbox Modal */}
+      {selectedVideo !== null && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={closeVideo}
+        >
+          <div className="relative w-full max-w-4xl">
+            {/* Close Button */}
+            <button
+              onClick={closeVideo}
+              className="absolute -top-12 right-0 z-10 bg-white/20 hover:bg-white/30 rounded-full p-2 text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+              aria-label="Close video"
+            >
+              <X size={24} />
+            </button>
+
+            <div className="aspect-video w-full">
+              <iframe
+                src={`${gymVideos[selectedVideo].videoUrl}?autoplay=1&rel=0`}
+                className="w-full h-full rounded-lg"
+                title={gymVideos[selectedVideo].title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            
+            <div className="mt-4 text-center">
+              <h3 className="text-xl font-bold text-white">
+                {gymVideos[selectedVideo].title}
+              </h3>
+              <p className="text-gray-300 mt-1">
+                {gymVideos[selectedVideo].description}
+              </p>
             </div>
           </div>
         </div>

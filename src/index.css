@@ -51,8 +51,19 @@
     background: linear-gradient(135deg, #FF6B35 0%, #E63946 100%);
   }
   
+  .fitness-gradient-green {
+    background: linear-gradient(135deg, #00FF01 0%, #00B201 100%);
+  }
+  
   .fitness-text-gradient {
     background: linear-gradient(135deg, #FF6B35 0%, #E63946 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .fitness-text-gradient-green {
+    background: linear-gradient(135deg, #00FF01 0%, #00B201 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
