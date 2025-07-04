@@ -171,7 +171,7 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-fitness-black">Weekdays</h3>
                   <p className="text-gray-600 mb-2">Monday - Friday</p>
-                  <p className="text-3xl font-bold text-fitness-dakestgreen">5:00 AM - 10:00 PM</p>
+                  <p className="text-3xl font-bold text-fitness-darkestgreen">5:00 AM - 10:00 PM</p>
                   <p className="text-sm text-gray-500 mt-2">17 hours daily</p>
                 </CardContent>
               </Card>
@@ -184,7 +184,7 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-fitness-black">Saturday</h3>
                   <p className="text-gray-600 mb-2">Weekend Sessions</p>
-                  <p className="text-3xl font-bold text-fitness-dakestgreen">5:00 AM - 10:00 PM</p>
+                  <p className="text-3xl font-bold text-fitness-darkestgreen">5:00 AM - 10:00 PM</p>
                   <p className="text-sm text-gray-500 mt-2">17 hours</p>
                 </CardContent>
               </Card>
@@ -197,7 +197,7 @@ const Index = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-fitness-black">Sunday</h3>
                   <p className="text-gray-600 mb-2">Relaxed Sunday</p>
-                  <p className="text-3xl font-bold text-fitness-dakestgreen">8:00 AM - 1:00 PM</p>
+                  <p className="text-3xl font-bold text-fitness-darkestgreen">8:00 AM - 1:00 PM</p>
                   <p className="text-sm text-gray-500 mt-2">5 hours</p>
                 </CardContent>
               </Card>
@@ -225,7 +225,7 @@ const Index = () => {
                     <Phone className="text-white" size={28} />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-fitness-black">Call Us</h3>
-                  <p className="text-fitness-dakestgreen font-bold">+91 9876543210</p>
+                  <p className="text-fitness-darkestgreen font-bold">+91 9876543210</p>
                   <Button 
                     className="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white"
                     onClick={() => handleContactAction('call')}
@@ -242,7 +242,7 @@ const Index = () => {
                     <MessageCircle className="text-white" size={28} />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-fitness-black">WhatsApp</h3>
-                  <p className="text-fitness-dakestgreen font-bold">+91 9876543210</p>
+                  <p className="text-fitness-darkestgreen font-bold">+91 9876543210</p>
                   <Button 
                     className="mt-4 w-full bg-green-500 hover:bg-green-600 text-white"
                     onClick={() => handleContactAction('whatsapp')}
@@ -259,7 +259,7 @@ const Index = () => {
                     <Mail className="text-white" size={28} />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-fitness-black">Email Us</h3>
-                  <p className="text-fitness-dakestgreen font-bold text-sm">fit.ferrum@gmail.com</p>
+                  <p className="text-fitness-darkestgreen font-bold text-sm">fit.ferrum@gmail.com</p>
                   <Button 
                     className="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white"
                     onClick={() => handleContactAction('email')}
@@ -276,7 +276,7 @@ const Index = () => {
                     <MapPin className="text-white" size={28} />
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-fitness-black">Visit Us</h3>
-                  <p className="text-fitness-dakestgreen font-bold text-sm">Kempapura Main Road, <br /> Bhuvaneswari Nagar</p>
+                  <p className="text-fitness-darkestgreen font-bold text-sm">Kempapura Main Road, <br /> Bhuvaneswari Nagar</p>
                   <Button 
                     className="mt-4 w-full fitness-gradient text-white"
                     onClick={() => handleContactAction('location')}

@@ -69,7 +69,7 @@ const Contact = () => {
       <section className="hero-bg py-32 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Contact <span className="text-yellow-300">Us</span>
+            Contact <span className="text-fitness-green">Us</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
             Get in touch with us today and start your fitness journey
@@ -83,7 +83,7 @@ const Contact = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
-                Get In <span className="fitness-text-gradient">Touch</span>
+                Get In <span className="fitness-text-gradient-green">Touch</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Choose your preferred way to reach us
@@ -102,11 +102,11 @@ const Contact = () => {
                   </h3>
                   <div className="space-y-2 mb-6">
                     <p className="text-fitness-orange font-semibold">
-                      Primary: <br /> +1 (555) 123-4567
+                      Primary: <br /> +91 9148549144
                     </p>
-                    <p className="text-gray-600">
+                    {/* <p className="text-gray-600">
                       Secondary: <br /> +1 (555) 987-6543
-                    </p>
+                    </p> */}
                   </div>
                   <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">
                     Call Now

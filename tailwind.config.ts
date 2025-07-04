@@ -62,7 +62,7 @@ export default {
 					lightGray: '#F5F5F5',
 					green: '#00FF01',
 					darkgreen: '#00B201',
-					dakestgreen: '#19761A',
+					darkestgreen: '#19761A',
 				}
 			},
 			borderRadius: {

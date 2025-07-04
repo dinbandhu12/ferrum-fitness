@@ -50,6 +50,10 @@
   .fitness-gradient {
     background: linear-gradient(135deg, #FF6B35 0%, #E63946 100%);
   }
+
+  .fitness-gradient-blue {
+    background: linear-gradient(135deg, #355dff 0%, #00B201 100%);
+  }
   
   .fitness-gradient-green {
     background: linear-gradient(135deg, #00FF01 0%, #00B201 100%);
@@ -72,5 +76,9 @@
   .hero-bg {
     background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
                 url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&h=1080&fit=crop') center/cover;
+  }
+  .student-bg {
+    background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), 
+                url('https://img.freepik.com/free-photo/side-view-portrait-focused-african-american-schoolboy_343059-3631.jpg?semt=ais_hybrid&w=740') center/cover;
   }
 }

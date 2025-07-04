@@ -231,7 +231,7 @@ const Gallery = () => {
       <section className="hero-bg py-32 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Our <span className="text-yellow-300">Gallery</span>
+            Our <span className="text-fitness-green">Gallery</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
             Take a virtual tour of our state-of-the-art fitness facility and see
@@ -245,11 +245,11 @@ const Gallery = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center space-x-2 mb-6">
-              <div className="w-12 h-12 fitness-gradient rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 fitness-gradient-green rounded-full flex items-center justify-center">
                 <Camera className="text-white" size={24} />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-fitness-black">
-                Facility <span className="fitness-text-gradient">Showcase</span>
+                Facility <span className="fitness-text-gradient-green">Showcase</span>
               </h2>
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -289,7 +289,7 @@ const Gallery = () => {
 
           <div className="text-center mt-12">
             <Link to="/contact">
-              <Button className="fitness-gradient text-white hover:opacity-90 text-lg px-8 py-4">
+              <Button className="fitness-gradient-green text-black hover:opacity-90 text-lg px-8 py-4">
                 Get a Tour
               </Button>
             </Link>
@@ -302,14 +302,14 @@ const Gallery = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center space-x-2 mb-6">
-              <div className="w-12 h-12 fitness-gradient rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 fitness-gradient-green rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                   <polygon points="23 7 16 12 23 17 23 7"></polygon>
                   <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                 </svg>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-fitness-black">
-                Workout <span className="fitness-text-gradient">Videos</span>
+                Workout <span className="fitness-text-gradient-green">Videos</span>
               </h2>
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -353,11 +353,11 @@ const Gallery = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center space-x-2 mb-6">
-              <div className="w-12 h-12 fitness-gradient rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 fitness-gradient-green rounded-full flex items-center justify-center">
                 <Trophy className="text-white" size={24} />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-fitness-black">
-                Our <span className="fitness-text-gradient">Champions</span>
+                Our <span className="fitness-text-gradient-green">Champions</span>
               </h2>
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -389,7 +389,7 @@ const Gallery = () => {
                   <h3 className="text-xl font-bold mb-2 text-fitness-black">
                     {winner.name}
                   </h3>
-                  <p className="text-fitness-orange font-semibold mb-2">
+                  <p className="text-fitness-darkestgreen font-semibold mb-2">
                     {winner.title}
                   </p>
                   <div className="space-y-2">
@@ -416,7 +416,7 @@ const Gallery = () => {
               Ready to become our next champion?
             </p>
             <Link to="/contact">
-              <Button className="fitness-gradient text-white hover:opacity-90 text-lg px-8 py-4">
+              <Button className="fitness-gradient-green text-white hover:opacity-90 text-lg px-8 py-4">
                 Contact Us
               </Button>
             </Link>
@@ -544,14 +544,14 @@ const Gallery = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+              className="bg-white text-fitness-darkestgreen hover:bg-gray-100 text-lg px-8 py-4"
             >
               Book a Tour
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+              className="bg-white text-fitness-darkestgreen hover:bg-gray-100 text-lg px-8 py-4"
               onClick={handleCallClick}
             >
               Call Now: (555) 123-4567

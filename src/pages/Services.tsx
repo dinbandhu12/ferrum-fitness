@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
@@ -91,28 +90,10 @@ const Services = () => {
 
   const specialOffers = [
     {
-      title: "New Member Special",
-      discount: "50% OFF",
-      description: "First month half price for new members",
-      validUntil: "Limited time offer"
-    },
-    {
       title: "Student Discount",
       discount: "20% OFF",
       description: "Special rates for students with valid ID",
       validUntil: "Ongoing offer"
-    },
-    {
-      title: "Annual Membership",
-      discount: "2 MONTHS FREE",
-      description: "Pay for 10 months, get 12 months access",
-      validUntil: "Best value"
-    },
-    {
-      title: "Refer a Friend",
-      discount: "$25 CREDIT",
-      description: "Get $25 credit for each successful referral",
-      validUntil: "Unlimited referrals"
     }
   ];
 
@@ -127,7 +108,7 @@ const Services = () => {
       <section className="hero-bg py-32 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Our <span className="text-yellow-300">Services</span>
+            Our <span className="text-fitness-green">Services</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
             Comprehensive fitness solutions designed to help you achieve your goals
@@ -140,7 +121,7 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
-              Our <span className="fitness-text-gradient">Services</span>
+              Our <span className="fitness-text-gradient-green">Services</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Professional fitness services designed to help you reach your goals
@@ -151,7 +132,7 @@ const Services = () => {
             {services.map((service, index) => (
               <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-6">
-                  <div className="w-16 h-16 fitness-gradient rounded-full flex items-center justify-center mx-auto mb-6">
+                  <div className="w-16 h-16 fitness-gradient-green rounded-full flex items-center justify-center mx-auto mb-6">
                     <service.icon className="text-white" size={32} />
                   </div>
                   <h3 className="text-xl font-bold mb-4 text-fitness-black">{service.title}</h3>
@@ -173,16 +154,16 @@ const Services = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
-              Monthly <span className="fitness-text-gradient">Memberships</span>
+              Monthly <span className="fitness-text-gradient-green">Memberships</span>
             </h2>
             <p className="text-xl text-gray-600">Flexible monthly plans with no long-term commitment</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {membershipPlans.map((plan, index) => (
-              <Card key={index} className={`relative ${plan.popular ? 'ring-2 ring-fitness-orange shadow-lg scale-105' : ''}`}>
+              <Card key={index} className={`relative ${plan.popular ? 'ring-2 ring-fitness-green shadow-lg scale-105' : ''}`}>
                 {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 fitness-gradient text-white px-4 py-1">
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 fitness-gradient-green text-white px-4 py-1">
                     <Star className="w-4 h-4 mr-1" />
                     Most Popular
                   </Badge>
@@ -198,7 +179,7 @@ const Services = () => {
                   <ul className="space-y-3 mb-8">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center space-x-3">
-                        <Check className="text-fitness-orange flex-shrink-0" size={16} />
+                        <Check className="text-fitness-green flex-shrink-0" size={16} />
                         <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
@@ -215,37 +196,43 @@ const Services = () => {
       </section>
 
       {/* Special Offers Section */}
-      <section className="py-20 hero-bg text-white">
+      {/* <section className="py-20 bg-gradient-to-r from-fitness-orange to-fitness-green text-white"> */}
+      <section className="py-20 student-bg text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Special <span className="text-yellow-300">Offers</span>
-            </h2>
-            <p className="text-xl text-gray-200">Don't miss out on these amazing deals!</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {specialOffers.map((offer, index) => (
-              <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 text-white">
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold">{offer.title}</CardTitle>
-                  <div className="text-2xl font-bold text-yellow-300">{offer.discount}</div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-200 mb-4">{offer.description}</p>
-                  <Badge className="bg-yellow-400 text-black font-semibold">
-                    {offer.validUntil}
-                  </Badge>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4">
-              Claim Your Offer Today
-              <ArrowRight className="ml-2" size={20} />
-            </Button>
+          <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/20">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Special <span className="text-yellow-300">Student Offer</span>
+              </h2>
+              <p className="text-xl text-gray-100">
+                We have special offers for <span className="text-yellow-300 font-semibold">students</span> please call directly or walk in ferrum studio
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+              <Button 
+                size="lg" 
+                className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-6 flex items-center gap-2 transition-all hover:scale-105"
+                onClick={handleCallClick}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-phone">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Call Directly
+              </Button>
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button 
+                  variant="default" 
+                  size="lg" 
+                  className="w-full text-lg px-8 py-6 flex items-center gap-2 transition-all hover:scale-105"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Walk In
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -81,7 +81,7 @@ const About = () => {
       <section className="hero-bg py-32 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Meet Your <span className="text-yellow-300">Trainers</span>
+            Meet Your <span className="text-fitness-green">Trainers</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-200">
             Dedicated to helping you achieve your fitness goals with
@@ -104,14 +104,14 @@ const About = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 fitness-gradient rounded-full flex items-center justify-center shadow-xl">
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 fitness-gradient-green rounded-full flex items-center justify-center shadow-xl">
                   <Star className="text-white" size={32} />
                 </div>
               </div>
 
               {/* Trainer Info */}
               <div>
-                <Badge className="fitness-gradient text-white mb-4 px-4 py-2 text-sm">
+                <Badge className="fitness-gradient-green text-black mb-4 px-4 py-2 text-sm">
                   Lead Fitness Trainer
                 </Badge>
                 <h2 className="text-4xl font-bold mb-6 text-fitness-black">
@@ -133,7 +133,7 @@ const About = () => {
                       className="text-center p-4 bg-fitness-lightGray rounded-lg"
                     >
                       <achievement.icon
-                        className="text-fitness-orange mx-auto mb-2"
+                        className="text-fitness-darkestgreen mx-auto mb-2"
                         size={32}
                       />
                       <div className="text-2xl font-bold text-fitness-black">
@@ -147,7 +147,7 @@ const About = () => {
                 </div>
 
                 <Link to="/contact">
-                  <Button className="fitness-gradient text-white hover:opacity-90 text-lg px-8 py-4">
+                  <Button className="fitness-gradient-green text-white hover:opacity-90 text-lg px-8 py-4">
                     Contact us
                   </Button>
                 </Link>
@@ -163,7 +163,7 @@ const About = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
-                Our Expert <span className="fitness-text-gradient">Team</span>
+                Our Expert <span className="fitness-text-gradient-green">Team</span>
               </h2>
               <p className="text-xl text-gray-600">
                 Meet our specialized trainers who bring diverse expertise to
@@ -184,7 +184,7 @@ const About = () => {
                       className="w-full h-64 object-cover"
                     />
                     <div className="absolute top-4 right-4">
-                      <Badge className="fitness-gradient text-white">
+                      <Badge className="fitness-gradient-green text-black">
                         {trainer.experience}
                       </Badge>
                     </div>
@@ -193,7 +193,7 @@ const About = () => {
                     <h3 className="text-xl font-bold mb-2 text-fitness-black">
                       {trainer.name}
                     </h3>
-                    <p className="text-fitness-orange font-semibold mb-3">
+                    <p className="text-fitness-darkgreen font-semibold mb-3">
                       {trainer.role}
                     </p>
                     <p className="text-gray-600 mb-4">
@@ -227,7 +227,7 @@ const About = () => {
                       </div>
                     </div>
 
-                    <Button className="w-full mt-4 fitness-gradient text-white hover:opacity-90">
+                    <Button className="w-full mt-4 fitness-gradient-green text-white hover:opacity-90">
                       Learn More
                     </Button>
                   </CardContent>
@@ -244,7 +244,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
-                My <span className="fitness-text-gradient">Story</span>
+                My <span className="fitness-text-gradient-green">Story</span>
               </h2>
             </div>
 
@@ -288,7 +288,7 @@ const About = () => {
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
                 Training{" "}
-                <span className="fitness-text-gradient">Philosophy</span>
+                <span className="fitness-text-gradient-green">Philosophy</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 My approach to fitness is built on four core principles that
@@ -299,7 +299,7 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="p-8 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-0">
-                  <div className="w-16 h-16 fitness-gradient rounded-full flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 fitness-gradient-green rounded-full flex items-center justify-center mb-6">
                     <Target className="text-white" size={32} />
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-fitness-black">
@@ -316,7 +316,7 @@ const About = () => {
 
               <Card className="p-8 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-0">
-                  <div className="w-16 h-16 fitness-gradient rounded-full flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 fitness-gradient-green rounded-full flex items-center justify-center mb-6">
                     <Heart className="text-white" size={32} />
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-fitness-black">
@@ -332,7 +332,7 @@ const About = () => {
 
               <Card className="p-8 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-0">
-                  <div className="w-16 h-16 fitness-gradient rounded-full flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 fitness-gradient-green rounded-full flex items-center justify-center mb-6">
                     <Users className="text-white" size={32} />
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-fitness-black">
@@ -348,7 +348,7 @@ const About = () => {
 
               <Card className="p-8 hover:shadow-lg transition-shadow">
                 <CardContent className="pt-0">
-                  <div className="w-16 h-16 fitness-gradient rounded-full flex items-center justify-center mb-6">
+                  <div className="w-16 h-16 fitness-gradient-green rounded-full flex items-center justify-center mb-6">
                     <Calendar className="text-white" size={32} />
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-fitness-black">
@@ -372,7 +372,7 @@ const About = () => {
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-fitness-black">
               Certifications &{" "}
-              <span className="fitness-text-gradient">Qualifications</span>
+              <span className="fitness-text-gradient-green">Qualifications</span>
             </h2>
             <p className="text-xl text-gray-600 mb-12">
               Committed to staying current with the latest fitness science and
@@ -386,7 +386,7 @@ const About = () => {
                   className="p-6 hover:shadow-lg transition-shadow"
                 >
                   <CardContent className="pt-0 text-center">
-                    <div className="w-12 h-12 fitness-gradient rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-12 h-12 fitness-gradient-blue rounded-full flex items-center justify-center mx-auto mb-4">
                       <CheckCircle className="text-white" size={24} />
                     </div>
                     <h3 className="font-semibold text-fitness-black">{cert}</h3>
@@ -411,17 +411,17 @@ const About = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+              className="bg-white text-fitness-darkestgreen hover:bg-gray-100 text-lg px-8 py-4"
             >
               Book Free Consultation
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+              className="bg-white text-fitness-darkestgreen hover:bg-gray-100 text-lg px-8 py-4"
               onClick={handleCallClick}
             >
-              Call Now: (555) 123-4567
+              Call Now: +91 9148549144
             </Button>
           </div>
         </div>

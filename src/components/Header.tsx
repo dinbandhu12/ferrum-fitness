@@ -57,8 +57,8 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`font-medium transition-colors hover:text-fitness-dakestgreen ${
-                  isActive(item.href) ? 'text-fitness-dakestgreen font-bold' : 'text-fitness-black'
+                className={`font-medium transition-colors hover:text-fitness-darkestgreen ${
+                  isActive(item.href) ? 'text-fitness-darkestgreen font-bold' : 'text-fitness-black'
                 }`}
               >
                 {item.name}
@@ -68,7 +68,7 @@ const Header = () => {
 
           <div className="hidden lg:flex items-center space-x-4">
             <Link to="/contact">
-              <Button variant="outline" className="border-fitness-dakestgreen text-fitness-dakestgreen hover:bg-fitness-dakestgreen hover:text-white font-bold">
+              <Button variant="outline" className="border-fitness-darkestgreen text-fitness-darkestgreen hover:bg-fitness-darkestgreen hover:text-white font-bold">
                 <Phone size={16} className="mr-1" />
                 Call Now
               </Button>
@@ -100,7 +100,7 @@ const Header = () => {
                   key={item.name}
                   to={item.href}
                   className={`font-medium py-2 transition-colors ${
-                    isActive(item.href) ? 'text-fitness-dakestgreen font-bold' : 'text-fitness-black'
+                    isActive(item.href) ? 'text-fitness-darkestgreen font-bold' : 'text-fitness-black'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -109,7 +109,7 @@ const Header = () => {
               ))}
               <div className="flex flex-col space-y-2 pt-4">
                 <Link to="/contact">
-                  <Button variant="outline" className="border-fitness-dakestgreen text-fitness-dakestgreen">
+                  <Button variant="outline" className="border-fitness-darkestgreen text-fitness-darkestgreen">
                     <Phone size={16} className="mr-1" />
                     Call Now
                   </Button>
