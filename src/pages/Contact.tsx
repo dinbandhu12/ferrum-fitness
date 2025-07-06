@@ -50,7 +50,7 @@ const Contact = () => {
   };
 
   const handleContactClick = () => {
-    const phoneNumber = "+15551234567"; // Replace with your actual phone number
+    const phoneNumber = "+91 9148549144"; // Replace with your actual phone number
     
     if (isMobile()) {
       // On mobile, open phone dialer
@@ -125,7 +125,7 @@ const Contact = () => {
                   </h3>
                   <div className="space-y-2 mb-6">
                     <p className="text-fitness-orange font-semibold">
-                      +1 (555) 123-4567
+                      +91 9148549144
                     </p>
                     <p className="text-gray-600">
                       {isMobile() ? 'Tap to call' : 'Quick responses'}
@@ -151,10 +151,10 @@ const Contact = () => {
                   </h3>
                   <div className="space-y-2 mb-6">
                     <p className="text-fitness-orange font-semibold text-sm">
-                      info@fitnessstudio.com
+                      fit.ferrum@gmail.com
                     </p>
                     <p className="text-gray-600 text-sm">
-                      support@fitnessstudio.com
+                      Write email to us
                     </p>
                   </div>
                   <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white">
@@ -174,12 +174,12 @@ const Contact = () => {
                   </h3>
                   <div className="space-y-1 mb-6">
                     <p className="text-fitness-orange font-semibold text-sm">
-                      123 Fitness Street
+                      Kempapura Main Road,
                     </p>
                     <p className="text-gray-600 text-sm">
-                      Health City, HC 12345
+                      Bhuvaneswari Nagar
                     </p>
-                    <p className="text-gray-600 text-sm">Near Central Mall</p>
+                    {/* <p className="text-gray-600 text-sm">Near Central Mall</p> */}
                   </div>
                   <Button className="w-full fitness-gradient text-white">
                     Get Directions
@@ -189,87 +189,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Form and Info Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <Card className="shadow-2xl">
-                <CardHeader className="text-center pb-8">
-                  <CardTitle className="text-3xl font-bold text-fitness-black">
-                    Send Us a Message
-                  </CardTitle>
-                  <p className="text-gray-600">
-                    We'll get back to you within 24 hours
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium text-fitness-black mb-2"
-                      >
-                        Full Name *
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        placeholder="Enter your full name"
-                        required
-                        className="focus:ring-fitness-orange focus:border-fitness-orange h-12"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium text-fitness-black mb-2"
-                      >
-                        Phone Number *
-                      </label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        placeholder="Enter your phone number"
-                        required
-                        className="focus:ring-fitness-orange focus:border-fitness-orange h-12"
-                      />
-                    </div>
-
-                    <div>
-                      <label
-                        htmlFor="message"
-                        className="block text-sm font-medium text-fitness-black mb-2"
-                      >
-                        Message *
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell us about your fitness goals or any questions you have..."
-                        rows={6}
-                        required
-                        className="focus:ring-fitness-orange focus:border-fitness-orange"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full fitness-gradient text-white hover:opacity-90 text-lg py-4"
-                    >
-                      <Send className="mr-2" size={20} />
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-
+            <div className="max-w-2xl mx-auto">
               {/* Operating Hours and Social Media */}
               <div className="space-y-8">
                 {/* Operating Hours Card */}
@@ -284,26 +204,26 @@ const Contact = () => {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center py-3 border-b border-gray-200">
                         <span className="font-medium text-fitness-black">
-                          Monday - Friday
+                          Monday - Saturday
                         </span>
                         <span className="text-fitness-orange font-semibold">
-                          6:00 AM - 10:00 PM
+                          5:00 AM - 10:00 PM
                         </span>
                       </div>
-                      <div className="flex justify-between items-center py-3 border-b border-gray-200">
+                      {/* <div className="flex justify-between items-center py-3 border-b border-gray-200">
                         <span className="font-medium text-fitness-black">
                           Saturday
                         </span>
                         <span className="text-fitness-orange font-semibold">
                           8:00 AM - 8:00 PM
                         </span>
-                      </div>
+                      </div> */}
                       <div className="flex justify-between items-center py-3">
                         <span className="font-medium text-fitness-black">
                           Sunday
                         </span>
                         <span className="text-fitness-orange font-semibold">
-                          8:00 AM - 6:00 PM
+                          8:00 AM - 1:00 PM
                         </span>
                       </div>
                     </div>
@@ -321,7 +241,7 @@ const Contact = () => {
                     </p>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex space-x-4">
+                    <div className="flex flex-col sm:flex-row gap-4">
                       <a href="#" className="flex-1">
                         <div className="flex items-center justify-center p-4 bg-blue-600 rounded-lg text-white hover:bg-blue-700 transition-colors">
                           <Facebook size={24} className="mr-2" />
@@ -332,12 +252,6 @@ const Contact = () => {
                         <div className="flex items-center justify-center p-4 bg-pink-600 rounded-lg text-white hover:bg-pink-700 transition-colors">
                           <Instagram size={24} className="mr-2" />
                           <span className="font-medium">Instagram</span>
-                        </div>
-                      </a>
-                      <a href="#" className="flex-1">
-                        <div className="flex items-center justify-center p-4 bg-blue-400 rounded-lg text-white hover:bg-blue-500 transition-colors">
-                          <Twitter size={24} className="mr-2" />
-                          <span className="font-medium">Twitter</span>
                         </div>
                       </a>
                     </div>
@@ -389,18 +303,17 @@ const Contact = () => {
             towards your fitness transformation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="https://www.google.com/maps/place/FERRUM+FITNESS/@13.0550188,77.597953,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae17f5e7c4a35d:0xc695ee31ceae20da!8m2!3d13.0550188!4d77.6005279!16s%2Fg%2F11y92fl3h0?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-            <Button
-              size="lg"
-              className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
-            >
-              Visit Studio
-            </Button>
+            <Link to="https://www.google.com/maps/place/FERRUM+FITNESS/@13.0550188,77.597953,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae17f5e7c4a35d:0xc695ee31ceae20da!8m2!3d13.0550188!4d77.6005279!16s%2Fg%2F11y92fl3h0?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+              >
+                Visit Studio
+              </Button>
             </Link>
             <Button
               size="lg"
-              variant="outline"
-              className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4"
+              className="bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-4"
               onClick={handleContactClick}
             >
               <MessageCircle className="mr-2" size={20} />

@@ -319,7 +319,7 @@ const Index = () => {
                 onClick={handleCallClick}
               >
                 <Phone className="mr-2" size={20} />
-                Call Now: (555) 123-4567
+                Call Now: +91 9148549144
               </Button>
           </div>
         </div>

@@ -32,7 +32,7 @@ const Header = () => {
                 <MapPin size={14} />
                 <div className='flex flex-col md:flex-row gap-0 md:gap-1'>
                   <span>Kempapura Main Road, </span>
-                  <span> Bhuvaneswari Nagar</span>
+                  <span>Bhuvaneswari Nagar</span>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ const Header = () => {
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button className="fitness-gradient text-white">
+                  <Button className="fitness-gradient-green text-white">
                     Join Today
                   </Button>
                 </Link>
