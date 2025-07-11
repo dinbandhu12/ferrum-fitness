@@ -35,7 +35,7 @@ const About = () => {
 
   const additionalTrainers = [
     {
-      name: "Marcus Thompson",
+      name: "Name One",
       role: "Strength & Conditioning Coach",
       experience: "6 Years Experience",
       image:
@@ -45,7 +45,7 @@ const About = () => {
       achievements: "Former competitive powerlifter with 1500+ total",
     },
     {
-      name: "Emma Rodriguez",
+      name: "Name Two",
       role: "Functional Fitness Trainer",
       experience: "5 Years Experience",
       image:
@@ -55,7 +55,7 @@ const About = () => {
       achievements: "Regional CrossFit Games competitor and coach",
     },
     {
-      name: "Jake Wilson",
+      name: "Name Three",
       role: "HIIT & Cardio Specialist",
       experience: "4 Years Experience",
       image:
@@ -71,7 +71,7 @@ const About = () => {
   ];
 
   const handleCallClick = () => {
-    const phoneNumber = "+15551234567"; // Replace with your actual phone number
+    const phoneNumber = "+91 9148549144"; // Replace with your actual phone number
     window.location.href = `tel:${phoneNumber}`;
   };
 
@@ -99,9 +99,9 @@ const About = () => {
               <div className="relative">
                 <div className="aspect-square overflow-hidden rounded-2xl shadow-2xl">
                   <img
-                    src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=600&fit=crop&crop=face"
+                    src="images/img28.jpg"
                     alt="Professional fitness trainer"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
                 <div className="absolute -bottom-6 -right-6 w-24 h-24 fitness-gradient-green rounded-full flex items-center justify-center shadow-xl">
@@ -112,13 +112,13 @@ const About = () => {
               {/* Trainer Info */}
               <div>
                 <Badge className="fitness-gradient-green text-black mb-4 px-4 py-2 text-sm">
-                  Lead Fitness Trainer
+                  Meet the Lead Trainer
                 </Badge>
                 <h2 className="text-4xl font-bold mb-6 text-fitness-black">
-                  Sarah Johnson
+                  Vimal Gopinath
                 </h2>
                 <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  With over 8 years of experience in the fitness industry, I'm
+                  <span className="font-extrabold text-green-800">Pro Arm Wrestler. Masters National Champion 2022, 2023.</span> <br /> Over the past years of experience in the fitness industry, I'm
                   passionate about helping individuals transform their lives
                   through fitness. My approach combines scientific training
                   methods with personalized motivation to ensure every client

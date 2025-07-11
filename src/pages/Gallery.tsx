@@ -59,64 +59,84 @@ const Gallery = () => {
 
   const gymImages = [
     {
-      src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48",
+      src: "images/img01.jpg",
       alt: "Modern gym interior with state-of-the-art equipment",
-      category: "Gym Interior",
+      // category: "Gym Interior",
     },
     {
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
+      src: "images/img02.jpg",
       alt: "Weight training area with dumbbells and barbells",
-      category: "Weight Training",
+      // category: "Weight Training",
     },
     {
-      src: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b",
+      src: "images/img03.jpg",
       alt: "Cardio section with treadmills and exercise bikes",
-      category: "Cardio Zone",
+      // category: "Cardio Zone",
     },
     {
-      src: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f",
+      src: "images/img04.jpg",
       alt: "Group fitness class in action",
-      category: "Group Classes",
+      // category: "Group Classes",
     },
     {
-      src: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2",
+      src: "images/img05.jpg",
       alt: "Personal training session with professional trainer",
-      category: "Personal Training",
+      // category: "Personal Training",
     },
     {
-      src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+      src: "images/img06.jpg",
       alt: "Functional training area with kettlebells and resistance bands",
-      category: "Functional Training",
+      // category: "Functional Training",
     },
     {
-      src: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f",
+      src: "images/img07.jpg",
       alt: "Clean and modern locker room facilities",
-      category: "Facilities",
+      // category: "Facilities",
     },
     {
-      src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48",
+      src: "images/img23.jpg",
       alt: "Stretching and yoga area with mats",
-      category: "Yoga & Stretching",
+      // category: "Yoga & Stretching",
     },
     {
-      src: "https://images.unsplash.com/photo-1576678927484-cc907957088c",
+      src: "images/img24.jpg",
       alt: "Olympic weightlifting platform with professional equipment",
-      category: "Olympic Lifting",
+      // category: "Olympic Lifting",
     },
     {
-      src: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
+      src: "images/img10.jpg",
       alt: "High-intensity interval training area",
-      category: "HIIT Zone",
+      // category: "HIIT Zone",
     },
     {
-      src: "https://images.unsplash.com/photo-1550345332-09e3ac987658",
+      src: "images/img11.jpg",
       alt: "Recovery and massage therapy room",
-      category: "Recovery Room",
+      // category: "Recovery Room",
     },
     {
-      src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b",
+      src: "images/img12.jpg",
       alt: "Nutrition consultation and supplement area",
-      category: "Nutrition Center",
+      // category: "Nutrition Center",
+    },
+    {
+      src: "images/img13.jpg",
+      alt: "Olympic weightlifting platform with professional equipment",
+      // category: "Olympic Lifting",
+    },
+    {
+      src: "images/img19.jpg",
+      alt: "High-intensity interval training area",
+      // category: "HIIT Zone",
+    },
+    {
+      src: "images/img20.jpg",
+      alt: "Recovery and massage therapy room",
+      // category: "Recovery Room",
+    },
+    {
+      src: "images/img22.jpg",
+      alt: "Nutrition consultation and supplement area",
+      // category: "Nutrition Center",
     },
   ];
 
@@ -221,7 +241,7 @@ const Gallery = () => {
   };
 
   const handleCallClick = () => {
-    const phoneNumber = "+15551234567"; // Replace with your actual phone number
+    const phoneNumber = "+91 9148549144"; // Replace with your actual phone number
     window.location.href = `tel:${phoneNumber}`;
   };
 
@@ -249,7 +269,7 @@ const Gallery = () => {
                 <Camera className="text-white" size={24} />
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-fitness-black">
-                Facility <span className="fitness-text-gradient-green">Showcase</span>
+                Studio <span className="fitness-text-gradient-green">Showcase</span>
               </h2>
             </div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -277,11 +297,11 @@ const Gallery = () => {
                       <p className="text-sm font-medium">Click to view</p>
                     </div>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                     <p className="text-white text-sm font-medium">
                       {image.category}
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </Card>
             ))}
@@ -461,12 +481,12 @@ const Gallery = () => {
                     alt={gymImages[selectedImage].alt}
                     className="w-full max-h-[80vh] object-contain rounded-lg"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 rounded-b-lg">
+                  {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 rounded-b-lg">
                     <h3 className="text-white text-xl font-bold mb-2">
                       {gymImages[selectedImage].category}
                     </h3>
                     <p className="text-gray-200">{gymImages[selectedImage].alt}</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
