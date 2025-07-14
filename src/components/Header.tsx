@@ -26,7 +26,7 @@ const Header = () => {
             <div className="md:flex md:items-center md:space-x-4">
               <div className="flex items-center text-lg md:text-base space-x-1">
                 <Phone size={14} />
-                <span>+91 9148549144</span>
+                <span>+91 9731049700</span>
               </div>
               <div className="flex items-center text-base space-x-1">
                 <MapPin size={14} />

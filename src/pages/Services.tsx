@@ -253,7 +253,7 @@ const Services = () => {
             </Button>
             </Link>
             <Button size="lg" variant="outline" className="bg-white text-fitness-orange hover:bg-gray-100 text-lg px-8 py-4" onClick={handleCallClick}>
-              Call Now: (555) 123-4567
+              Call Now: +91 9148549144
             </Button>
           </div>
         </div>

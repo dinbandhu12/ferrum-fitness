@@ -242,13 +242,13 @@ const Contact = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-col sm:flex-row gap-4">
-                      <a href="#" className="flex-1">
+                      <a href="https://www.facebook.com/profile.php?id=61570921866016" className="flex-1">
                         <div className="flex items-center justify-center p-4 bg-blue-600 rounded-lg text-white hover:bg-blue-700 transition-colors">
                           <Facebook size={24} className="mr-2" />
                           <span className="font-medium">Facebook</span>
                         </div>
                       </a>
-                      <a href="#" className="flex-1">
+                      <a href="https://www.instagram.com/fitness_ferrum/" className="flex-1">
                         <div className="flex items-center justify-center p-4 bg-pink-600 rounded-lg text-white hover:bg-pink-700 transition-colors">
                           <Instagram size={24} className="mr-2" />
                           <span className="font-medium">Instagram</span>
