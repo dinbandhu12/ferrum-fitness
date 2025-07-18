@@ -329,3 +329,10 @@ const Index = () => {
 };
 
 export default Index;
+
+
+// TODO: add 3 video in gallery section (1st owner workou, 2nd vidoe, 3rd inogaration),
+// TODO: edit in out chapions with image (a big group image)
+// TODO: edit our expert team (add 3 image with caption only no more details)
+// TODO: commit my story section
+// TODO: upload on godaddy 
